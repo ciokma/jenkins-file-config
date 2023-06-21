@@ -5,13 +5,12 @@ def ENV = "dev"
 // Mask secret variables and try to print
 pipeline {
   agent any
+
+  environment {
+    SONAR_TOKEN = ""
+  }
   stages {
-    stage('checkout source') {
-      steps {
-        git credentialsId: 'github-credentials', url: 'https://github.com/ciokma/hello-java-spring-boot.git', branch: 'main'
-      }
-    }
-    stage('Read Config File') {
+    stage('Preparacion') {
       steps {
         script {
         def configVal = readYaml file: "config_${ENV}.yaml" 
@@ -20,10 +19,21 @@ pipeline {
      		echo configVal['SECRET_SAFE']['RUN_AS'][0]
      		echo configVal['SECRET_SAFE']['PS_AUTH_KEY'][0]
      		echo configVal['SECRET_ID']['SONAR'][0]
-   
+        SONAR_TOKEN = configVal['SECRET_ID']['SONAR'][0]
         }
       }
     }
+    stage('checkout source') {
+      steps {
+        git credentialsId: 'github-credentials', url: 'https://github.com/ciokma/hello-java-spring-boot.git', branch: 'main'
+      }
+    }
+    stage('Print Config Values') {
+      steps {
+        echo "sonar token ${SONAR_TOKEN}"
+      }
+    }
+
   }
   
   
