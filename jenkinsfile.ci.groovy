@@ -12,8 +12,8 @@ pipeline {
       }
     }
   }
-  stages {
-    stage('Read Config File') {
+  
+  stage('Read Config File') {
       steps {
         def configVal = readYaml file: "config.yaml"
         echo "configVal: " + configVal
@@ -24,6 +24,6 @@ pipeline {
         
       }
     }
-  }
+  
 }
 
