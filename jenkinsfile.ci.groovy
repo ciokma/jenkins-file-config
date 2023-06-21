@@ -20,7 +20,7 @@ pipeline {
      		echo configVal['SECRET_SAFE']['BASE'][0]
      		echo configVal['SECRET_SAFE']['RUN_AS'][0]
      		echo configVal['SECRET_SAFE']['PS_AUTH_KEY'][0]
-     		echo configVal['SECRET_SAFE']['SECRET_ID'][0][0]
+     		echo configVal['SECRET_ID']['SONAR'][0]
    
         }
       }

@@ -3,8 +3,8 @@ SECRET_SAFE:
 - BASE: base
   RUN_AS: runas
   PS_AUTH_KEY: ps_auth_key
-  SECRET_ID:
-    - SONAR: sonar_id
-      OPENSHIFT: openshift_id
-      NEXUS: nexus_id
-      BITBUCKET: bitbucket_id
+SECRET_ID:
+  - SONAR: sonar_id
+    OPENSHIFT: openshift_id
+    NEXUS: nexus_id
+    BITBUCKET: bitbucket_id
