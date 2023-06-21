@@ -17,8 +17,10 @@ pipeline {
         script {
         def configVal = readYaml file: "config.yaml"
         echo "configVal: " + configVal
-     		echo configVal['applications']['name'][0]
-
+     		echo configVal['SECRET_SAFE']['BASE'][0]
+     		echo configVal['SECRET_SAFE']['RUN_AS'][0]
+     		echo configVal['SECRET_SAFE']['PS_AUTH_KEY'][0]
+     		echo configVal['SECRET_SAFE']['SECRET_ID'][0]
    
         }
       }
