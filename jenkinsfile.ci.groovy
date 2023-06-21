@@ -17,6 +17,8 @@ pipeline {
         script {
         def configVal = readYaml file: "config.yaml"
         echo "configVal: " + configVal
+     		echo configVal['applications']['name'][0]
+
    
         }
       }
