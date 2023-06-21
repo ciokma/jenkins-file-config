@@ -11,8 +11,7 @@ pipeline {
         git credentialsId: 'github-credentials', url: 'https://github.com/ciokma/hello-java-spring-boot.git', branch: 'main'
       }
     }
-  }
-  stage('Read Config File') {
+    stage('Read Config File') {
       steps {
         def configVal = readYaml file: "config.yaml"
         echo "configVal: " + configVal
@@ -23,6 +22,8 @@ pipeline {
         
       }
     }
+  }
+  
   
   
   
