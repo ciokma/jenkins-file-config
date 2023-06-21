@@ -7,7 +7,9 @@ pipeline {
   agent any
   stages {
     stage('checkout') {
-      git credentialsId: 'github-credentials', url: 'https://github.com/ciokma/hello-java-spring-boot.git', branch: 'main'
+      steps {
+        git credentialsId: 'github-credentials', url: 'https://github.com/ciokma/hello-java-spring-boot.git', branch: 'main'
+      }
     }
   }
 }
