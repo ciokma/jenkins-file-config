@@ -1,5 +1,5 @@
 ---
-SECRET_SAFE:
+SECRET_SAFE_DEV:
 - BASE: base
   RUN_AS: runas
   PS_AUTH_KEY: ps_auth_key

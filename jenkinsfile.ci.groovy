@@ -1,7 +1,7 @@
 // Define secret variables
 def MY_PASSWORD = 'YWVyY3dxZWY'
 def MY_SECRET = 'ZGZoeWt5OGt'
-
+def ENV = "dev"
 // Mask secret variables and try to print
 pipeline {
   agent any
@@ -15,7 +15,7 @@ pipeline {
     stage('Read Config File') {
       steps {
         script {
-        def configVal = readYaml file: "config.yaml"
+        def configVal = readYaml file: "config_${ENV}.yaml" 
         echo "configVal: " + configVal
      		echo configVal['SECRET_SAFE']['BASE'][0]
      		echo configVal['SECRET_SAFE']['RUN_AS'][0]
