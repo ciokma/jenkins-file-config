@@ -13,13 +13,14 @@ pipeline {
     }
     stage('Read Config File') {
       steps {
+        script {
         def configVal = readYaml file: "config.yaml"
         echo "configVal: " + configVal
         echo configVal['applications']['name'][0]
         env.APP_NAME = configVal['applications']['name'][0]
 		    env.STACK = configVal['applications']['stack'][0]
 		    env.BUILD_PACK = configVal['applications']['buildpacks'][0][0]
-        
+        }
       }
     }
   }
