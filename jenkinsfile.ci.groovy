@@ -6,12 +6,11 @@ def ENV = "dev"
 pipeline {
   agent any
   stages {
-    /*
-    stage('checkout') {
+    stage('checkout source') {
       steps {
         git credentialsId: 'github-credentials', url: 'https://github.com/ciokma/hello-java-spring-boot.git', branch: 'main'
       }
-    }*/
+    }
     stage('Read Config File') {
       steps {
         script {
